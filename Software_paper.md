@@ -1,7 +1,7 @@
-***Delta Design Game (DDG): An interactive MATLAB tool to collect configuration-design data***
+# Delta Design Game (DDG): An interactive MATLAB tool to collect configuration-design data
 
 
-# Summary
+## Summary
 
 Studying human design heuristics in a configuration occasionally are conducted through interactive digits tools [1], [2]. However, these tools are based on known problems to designers such as truss design and heat transfer design. In contrast, we present an interactive design tool based on a skewed design problem called Delta-Design Game (DDG). Delta-Design is a fictional design game developed by Bucciarelli [3], to teach students the social designing skills such as communications, trade-offs, and team-dynamics. 
 
