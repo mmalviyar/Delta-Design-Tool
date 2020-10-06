@@ -162,7 +162,7 @@ classdef deltaworld < handle
                      end
                      this.number = this.number - 1;
                      success = 1;
-                     msg = " You just deleted a triangle";
+                     msg = "You just deleted a triangle";
                  else
                      success = 0;
                      msg = "No triangle nearby, Please Try Again";
@@ -206,7 +206,7 @@ classdef deltaworld < handle
                     c = 'b';
                 end
                 this.add_delta(loc, c, newori);
-                msg = "triangle flipped";
+                msg = "Triangle flipped";
                 success = 1;
             else
                 msg = "flip is not possible";
@@ -226,7 +226,7 @@ classdef deltaworld < handle
                 this.color(idx) = newcolr;
                 %tri = app.tridelta.tri(idx,:);
                 %tri(:,4) = newori;
-                msg = "Yo! Color changed";
+                msg = "Color changed";
                 success = 1;  
         end
         
@@ -238,7 +238,7 @@ classdef deltaworld < handle
                 this.anc = anc;
                 msg = "Added anchor";
             else
-                msg = "Select a triangle bro!!";
+                msg = "Select a triangle";
                 success = 0;
                 
             end
@@ -551,14 +551,14 @@ classdef deltaworld < handle
                          end
                     exist = 1;
                     if thermalstable == 1
-                        this.thermal = "WOW!! ";
+                        this.thermal = "Thermally Stable";
                     else
-                        this.thermal = "Too much red together, TOO HOT!!!";
+                        this.thermal = "Thermally Unstable";
                     end
                     if colrstable == 1 && Blueperc <=0.6
-                        this.aesthetics = "BEAUTIFUL!!";
+                        this.aesthetics = "Aesthetic Design";
                     else
-                        this.aesthetics = "UGLY!! NOT COOL, Check if there are more than 4 blue together together";
+                        this.aesthetics = "Check if there are more than 4 blue together together";
                     end
                     FOS_NORM = abs(this.FOS - 1.3)/0.7;
                     COST_NORM = abs((this.Cost - 600)/(1500-600));
@@ -567,13 +567,13 @@ classdef deltaworld < handle
                             && this.door_length <= 10 && this.door_length >=5 && this.Inside_Area/2 >= 100
                         Norm_Score = 1- 0.5*(FOS_NORM + COST_NORM);
                         if Norm_Score >= 0.75
-                            this.cus_sat = "Excellent Design, I am really happy";
+                            this.cus_sat = "Excellent Design";
                         elseif Norm_Score >= 0.5
-                            this.cus_sat = "Good Design, but can be the best";
+                            this.cus_sat = "Good Design";
                         elseif Norm_Score >= 0.25
-                            this.cus_sat = "Okay design, but a better design is possible";
+                            this.cus_sat = "Accepted";
                         elseif Norm_Score > 0
-                            this.cus_sat = "Technically acceptable, but doesnt make me happy";
+                            this.cus_sat = "Accepted";
                         end
                     else
                         this.cus_sat = "Design is not acceptable, Please Revise";
