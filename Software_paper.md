@@ -16,12 +16,19 @@ In the presented design tool, we provide adequate features for designers to prod
 ![Figure 1: Example of Successful Design on DDG Tool](https://github.com/mmalviyar/Delta-Design-Tool/blob/master/Files/Picture1.png)
 
 ***Figure 1: Example of Successful Design on DDG Tool***
+
+
 References
 [1]	C. McComb, J. Cagan, and K. Kotovsky, “Mining Process Heuristics from Designer Action Data Via Hidden Markov Models,” J. Mech. Des. Trans. ASME, vol. 139, no. 11, pp. 1–12, 2017, doi: 10.1115/1.4037308.
+
 [2]	C. McComb, J. Cagan, and K. Kotovsky, “Rolling with the punches: An examination of team performance in a design task subject to drastic changes,” Des. Stud., vol. 36, no. C, pp. 99–121, 2015, doi: 10.1016/j.destud.2014.10.001.
+
 [3]	L. L. Bucciarelli, “Delta Design Game,” 1991. [Online]. Available: http://ocw.mirror.ac.za/NR/rdonlyres/Aeronautics-and-Astronautics/16-00Introduction-to-Aerospace-Engineering-and-DesignSpring2003/405313D0-C7F9-4AB4-896C-11DD7339F372/0/intro.pdf.
+
 [4]	M. Michelle, M. Grau, S. Univeristy, S. D. Sheppard, M. Samantha, and R. Brunhaver, “Revamping Delta Design for Introductory Me-,” ASEE Annu. Conf. Expo. Conf. Proc. 2012, 2012.
+
 [5]	S. Oberoi, S. Finger, and E. Rosé, “Online Implementation of the Delta Design Game for Analyzing Collaborative Team Practices,” 2013, doi: 10.1115/detc2013-13319.
+
 [6]	Mathworks, “MATLAB APP DESIGNER.” Mathworks, 2020, [Online]. Available: https://www.mathworks.com/products/matlab/app-designer.html.
 
 
