@@ -18,7 +18,7 @@ In the presented design tool, we provide adequate features for designers to prod
 ***Figure 1: Example of Successful Design on DDG Tool***
 
 
-***References***
+## References
 
 
 [1]	C. McComb, J. Cagan, and K. Kotovsky, “Mining Process Heuristics from Designer Action Data Via Hidden Markov Models,” J. Mech. Des. Trans. ASME, vol. 139, no. 11, pp. 1–12, 2017, doi: 10.1115/1.4037308.
