@@ -81,6 +81,9 @@ The sequential data is stored as series of object files after each events. This 
 ## Examples
 A successful demonstration of the DDG tool in a research is presented in [7]. Additionally successfully designs are also provided in Examples folder (To access, copy all the files into main folder and run the program with participant number 51).
 
+## Community Guidelines
+
+
 ## References
 [1]	C. McComb, J. Cagan, and K. Kotovsky, “Mining Process Heuristics from Designer Action Data Via Hidden Markov Models,” J. Mech. Des. Trans. ASME, vol. 139, no. 11, pp. 1–12, 2017, doi: 10.1115/1.4037308.
 
