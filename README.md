@@ -70,6 +70,7 @@ DDG tool can be accessed directly without installing but will need access to MAT
 
 We mainly programmed the DDG tool using MATLAB App designer and supporting modules with object oriented programming. DDG tool works with MATLAB 2019 or higher with App designer functionality and can be accessed via Opener.mlapp in the package. This would open up a prompt window asking for participant number. After entering the participant number, designer can access to the program and sketch their design with real-time performance evaluation.
 A video demonstrating the software is presented below:
+
 INSERT YOUTUBE
 
 
@@ -79,7 +80,7 @@ INSERT YOUTUBE
 
 The sequential data is stored as series of object files after each events. This files are named as per convention:- XState_A.mat, where X is the participant number and A is the action number at given point of design. In addition, the DDG tool store the time and action log as table (Xactiondata.mat). Using collected data, a researcher can use a variety of sequential learning algorithms and statistics to extract design heuristics.
 
-
+# Video Demonstration
 
 ## Examples
 A successful demonstration of the DDG tool in a research is presented in [7]. Additionally successfully designs are also provided in Examples folder (To access, copy all the files into main folder and run the program with participant number 51).
