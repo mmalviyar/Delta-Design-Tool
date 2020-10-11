@@ -81,6 +81,7 @@ We mainly programmed the DDG tool using MATLAB App designer and supporting modul
 The sequential data is stored as series of object files after each events. This files are named as per convention:- XState_A.mat, where X is the participant number and A is the action number at given point of design. In addition, the DDG tool store the time and action log as table (Xactiondata.mat). Using collected data, a researcher can use a variety of sequential learning algorithms and statistics to extract design heuristics.
 
 ## Video Demonstration
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/GNnKqZj9Lj8)
 
 ## Examples
 A successful demonstration of the DDG tool in a research is presented in [7]. Additionally successfully designs are also provided in Examples folder (To access, copy all the files into main folder and run the program with participant number 51).
