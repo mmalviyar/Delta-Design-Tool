@@ -25,7 +25,7 @@ We also designed a control panel to provide a way to mitigate accidental mistake
 | **Actions**   	|  Description       	| Keyboard-shortcuts    	| Notes	|   
 |---	|---	|---	|---	|
 | **Add Delta**  	| Adding a red or blue downward delta  	|  W- up oriented, S- down oriented 	|  Use left or right mouse click for red or blue delta 	|
-| ** Anchor**  	| Defining a delta as anchor delta	  	|  -	|  Select two delta sequentially as Anchor (shown with holes) 	|
+| **Anchor**  	| Defining a delta as anchor delta	  	|  -	|  Select two delta sequentially as Anchor (shown with holes) 	|
 |  **Move**  	| Move a delta from one location to another  	|  D 	|  Select a delta and select the next coordinates for moving delta  	|
 |  **Fine Control**   	|  Move a delta using keyboard   	|  E 	|  Select a delta and use arrow keys to move 	|
 |  **Color**  	| Change the color of existing delta  	|  C 	|  -  	|
