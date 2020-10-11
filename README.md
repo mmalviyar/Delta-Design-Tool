@@ -22,6 +22,12 @@ In Bucciarelli’s original conception of the DDG, four students, each with a di
 To facilitate design and data collection, we developed a graphical user interface (GUI) using MATLAB’s App designer [5], as shown in Figure 1. Besides facilitating the virtual design, we also focused on providing a more authentic design environment by embedding client feedback as a feature in the tool. The back end of the GUI tests the design score and satisfaction of constraints in real-time. The GUI also does not allow for impossible design features (for example, overlapping delta triangles). There are nine design actions that can be performed to complete the challenge. We place these actions on three different panels based on their roles. Table 2 explains the specific function of each of the actions in the Compose and Revise sub-panels. All actions performed in the GUI are recorded for later analysis to study design heuristics. There are three message boxes in GUI: Delta World Status, Design Feedback, and Participant Information. The “Delta Status” message box displays the success or an error message corresponding to a designer’s actions. The “Participant Information” box displays the participant number, time left for the study and number of deltas. The “Design Score” message box is an essential feature for making this GUI a real-life experience, providing real-time insight as to the constraints when designs do not meet requirements. 
 We also designed a control panel to provide a way to mitigate accidental mistakes. For example, if a designer accidentally deletes a triangle, they can use the UNDO function to return to the previous state. We added a panel at bottom for an overview of design constraints and objective function details. List of available actions are as follows:
 
+| **Actions**   	| **Actions**    	| **Actions**    	| **Actions**    	|   	|
+|---	|---	|---	|---	|---	|
+|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|
+|   	|   	|   	|   	|   	|
+
  |**Actions**  	      |              Description                 |  Keyboard-shortcuts |                  Comments
  |---|---|---|
  |**Add UP Delta**  	 | Adding a red or blue upward delta        |         W           | Use left or right mouse click for red or blue delta
