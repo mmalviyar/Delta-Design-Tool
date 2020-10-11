@@ -39,7 +39,6 @@ We also designed a control panel to provide a way to mitigate accidental mistake
 
 
 
-
 ## Objective Function Description
 As a researcher, you can define you own objective function to evaluate the performance of a designer. As an example we developed a default objective function for evaluating the individual designer's performance as they played the game. The constraints related to the properties of the red and blue deltas and the overarching storyboard of the game remained the same as in []; however, individuals can also complete the challenge in 45 minutes. One of the main objectives for the designer is to achieve a low-cost design with optimum factor of safety (FOS). We defined the maximum cost of residence to be $1500 as per original game rules. We defined the target FOS to be 1.3, which strikes an optimum balance between over-designing and under-designing [6]. For the tool to calculate the objective function, having two anchored deltas minimum is neccessary. A summary of the objectives is presented below:
 
@@ -81,7 +80,7 @@ We mainly programmed the DDG tool using MATLAB App designer and supporting modul
 
 The sequential data is stored as series of object files after each events. This files are named as per convention:- XState_A.mat, where X is the participant number and A is the action number at given point of design. In addition, the DDG tool store the time and action log as table (Xactiondata.mat). Using collected data, a researcher can use a variety of sequential learning algorithms and statistics to extract design heuristics.
 
-# Video Demonstration
+## Video Demonstration
 
 ## Examples
 A successful demonstration of the DDG tool in a research is presented in [7]. Additionally successfully designs are also provided in Examples folder (To access, copy all the files into main folder and run the program with participant number 51).
