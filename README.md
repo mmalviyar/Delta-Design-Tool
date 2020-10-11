@@ -23,6 +23,7 @@ To facilitate design and data collection, we developed a graphical user interfac
 We also designed a control panel to provide a way to mitigate accidental mistakes. For example, if a designer accidentally deletes a triangle, they can use the UNDO function to return to the previous state. We added a panel at bottom for an overview of design constraints and objective function details. List of available actions are as follows:
 
  |**Actions**  	      |              Description                 |  Keyboard-shortcuts |                  Comments
+ |---|---|---|
  |**Add UP Delta**  	 | Adding a red or blue upward delta        |         W           | Use left or right mouse click for red or blue delta
  |**Add DOWN Delta** 	| Adding a red or blue downward delta      |	        S           | Use left or right mouse click for red or blue delta
  |**Add Anchor** 	    | Defining a delta as anchor delta	        |         -           | Select two delta sequentially as Anchor (shown with holes)
