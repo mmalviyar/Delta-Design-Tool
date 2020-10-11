@@ -54,7 +54,7 @@ As a researcher, you can define you own objective function to evaluate the perfo
 1. Smoother Exterior and an Angular Interior
 1. Total number of blue deltas may not exceed 60% of the total number of deltas
 * Spatial	: 
-1. Doorway length must be between 5 and 10m
+1. Doorway length must be between 5 and 10m (Represented by black outlined deltas)
 1. Minimum Interior Area of 100 quarter-deltas
 
 To judge and compare the designs of residence by participants analytically, we developed a normalized design score based on FOS and cost, calculated in Equations 1-3. The design score varies from 0 (lowest score) to 1 (highest score), such that if the design does not meet the requirement, the client satisfaction score is zero. The normalized design score is given by
