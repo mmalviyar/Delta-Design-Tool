@@ -74,8 +74,6 @@ A video demonstrating the software is presented below:
 INSERT YOUTUBE
 
 
-
-
 **DDG Tool data collection**
 
 The sequential data is stored as series of object files after each events. This files are named as per convention:- XState_A.mat, where X is the participant number and A is the action number at given point of design. In addition, the DDG tool store the time and action log as table (Xactiondata.mat). Using collected data, a researcher can use a variety of sequential learning algorithms and statistics to extract design heuristics.
@@ -87,6 +85,9 @@ A successful demonstration of the DDG tool in a research is presented in [7]. Ad
 
 ## Community Guidelines
 
+Contributors to DDG tool are absolutely encouraged, whether to fix bugs, add/request new features or simply ask questions. Authors can be contacted via email (manmalviya18@gmail.com).
+
+Someone might have already asked a question you might have, so if you're not sure where to start, check out the issues (and the issues of the other repositories)
 
 ## References
 [1]	C. McComb, J. Cagan, and K. Kotovsky, “Mining Process Heuristics from Designer Action Data Via Hidden Markov Models,” J. Mech. Des. Trans. ASME, vol. 139, no. 11, pp. 1–12, 2017, doi: 10.1115/1.4037308.
