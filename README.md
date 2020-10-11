@@ -22,18 +22,25 @@ In Bucciarelli’s original conception of the DDG, four students, each with a di
 To facilitate design and data collection, we developed a graphical user interface (GUI) using MATLAB’s App designer [5], as shown in Figure 1. Besides facilitating the virtual design, we also focused on providing a more authentic design environment by embedding client feedback as a feature in the tool. The back end of the GUI tests the design score and satisfaction of constraints in real-time. The GUI also does not allow for impossible design features (for example, overlapping delta triangles). There are nine design actions that can be performed to complete the challenge. We place these actions on three different panels based on their roles. Table 2 explains the specific function of each of the actions in the Compose and Revise sub-panels. All actions performed in the GUI are recorded for later analysis to study design heuristics. There are three message boxes in GUI: Delta World Status, Design Feedback, and Participant Information. The “Delta Status” message box displays the success or an error message corresponding to a designer’s actions. The “Participant Information” box displays the participant number, time left for the study and number of deltas. The “Design Score” message box is an essential feature for making this GUI a real-life experience, providing real-time insight as to the constraints when designs do not meet requirements. 
 We also designed a control panel to provide a way to mitigate accidental mistakes. For example, if a designer accidentally deletes a triangle, they can use the UNDO function to return to the previous state. We added a panel at bottom for an overview of design constraints and objective function details. List of available actions are as follows:
 
-* **Add UP Delta**	Adding a red or blue upward delta	
-* **Add DOWN Delta** 	Adding a red or blue downward delta	
-* **Add Anchor** 	Defining a delta as anchor delta	
-* **Move** 	        Move a delta from one location to another	
-* **Fine Control** 	Move a delta nearby locations for fine location tuning purposes
-* **Color** 	        Change the color of existing delta	
-* **Flip** 	        Change the orientation of existing delta	
-* **Delete** 	        Delete existing delta or anchors	
-* **End Study**	        Ending the study	
+| **Actions**   	|  Description       	| Keyboard-shortcuts    	| Notes	|   
+|---	|---	|---	|---	|
+| **Add Delta**  	| Adding a red or blue downward delta  	|  W- up oriented, S- down oriented 	|  Use left or right mouse click for red or blue delta 	|
+| **Anchor**  	| Defining a delta as anchor delta	  	|  -	|  Select two delta sequentially as Anchor (shown with holes) 	|
+|  **Move**  	| Move a delta from one location to another  	|  D 	|  Select a delta and select the next coordinates for moving delta  	|
+|  **Fine Control**   	|  Move a delta using keyboard   	|  E 	|  Select a delta and use arrow keys to move 	|
+|  **Color**  	| Change the color of existing delta  	|  C 	|  -  	|
+|  **Flip**  	| Change the orientation of existing delta  	|  F 	| In some instances flip might not be possible due to delta overlapping  	|
+|  **Delete**  	| Delete existing delta or anchors	  	|  del 	|  Deleting Anchored deltas will also remove both the anchors 	|
+|  **End Study**  	| Ending the study  	|   - 	|  	-  |
+|  **Redo**  	|  -  	|   - 	|  	-  |
+|  **Undo**  	|  - 	|   - 	|  	-  |
+|  **Clear**  	| Deleting all deltas  	|   - 	|  	-  |
+|  **Refresh**  	| Refreshing the DDG screen  	|  F5 	|  	-  |
+
+
 
 ## Objective Function Description
-As a researcher, you can define you own objective function to evaluate the performance of a designer. As an example we developed a default objective function for evaluating the individual designer's performance as they played the game. The constraints related to the properties of the red and blue deltas and the overarching storyboard of the game remained the same as in []; however, individuals can also complete the challenge in 45 minutes. One of the main objectives for the designer is to achieve a low-cost design with optimum factor of safety (FOS). We defined the maximum cost of residence to be $1500 as per original game rules. We defined the target FOS to be 1.3, which strikes an optimum balance between over-designing and under-designing [6]. A summary of the objectives is presented below:
+As a researcher, you can define you own objective function to evaluate the performance of a designer. As an example we developed a default objective function for evaluating the individual designer's performance as they played the game. The constraints related to the properties of the red and blue deltas and the overarching storyboard of the game remained the same as in []; however, individuals can also complete the challenge in 45 minutes. One of the main objectives for the designer is to achieve a low-cost design with optimum factor of safety (FOS). We defined the maximum cost of residence to be $1500 as per original game rules. We defined the target FOS to be 1.3, which strikes an optimum balance between over-designing and under-designing [6]. For the tool to calculate the objective function, having two anchored deltas minimum is neccessary. A summary of the objectives is presented below:
 
 **Main Objective**
 
@@ -63,23 +70,25 @@ where the Factor of Safety, F(x), and cost  C(x)  of the design are governed by
 In these equations, x represents the design generated by designer, c(x) is the cost of the design and f(x) is factor of safety. Factor of safety represents the strength of residence and is mainly depended on topology of structure and position of anchors, whereas cost of the residence is depended on number of red and blue deltas and adjacent connections between deltas. We also suggest to explore other objective functions such as cost to strength ratio and number of triangles to strength.
 
 ## Installation
-DDG tool can be accessed directly without installing but will need access to MATLAB 2019 or higher.
+DDG tool can be accessed directly without installing but will need access to MATLAB 2019 or higher. Download the entire folder and open opener.mlapp.
 
 ## Usage
 **DDG Tool GUI**
-We mainly programmed the DDG tool using MATLAB App designer and supporting modules with object oriented programming. DDG tool works with MATLAB 2019 or higher with App designer functionality and can be accessed via Opener.mlapp in the package. This would open up a prompt window asking for participant number (Figure 2a). After entering the participant number, designer can access to the program and sketch their design with real-time performance evaluation (Figure 2b).
 
-
-
-
-
+We mainly programmed the DDG tool using MATLAB App designer and supporting modules with object oriented programming. DDG tool works with MATLAB 2019 or higher with App designer functionality and can be accessed via Opener.mlapp in the package. This would open up a prompt window asking for participant number. After entering the participant number, designer can access to the program and sketch their design with real-time performance evaluation.
 **DDG Tool data collection**
+
 The sequential data is stored as series of object files after each events. This files are named as per convention:- XState_A.mat, where X is the participant number and A is the action number at given point of design. In addition, the DDG tool store the time and action log as table (Xactiondata.mat). Using collected data, a researcher can use a variety of sequential learning algorithms and statistics to extract design heuristics.
 
-
+## Video Demonstration
+[![Watch the video](https://img.youtube.com/vi/<GNnKqZj9Lj8>/maxresdefault.jpg)](https://youtu.be/GNnKqZj9Lj8)
 
 ## Examples
 A successful demonstration of the DDG tool in a research is presented in [7]. Additionally successfully designs are also provided in Examples folder (To access, copy all the files into main folder and run the program with participant number 51).
+
+## Community Guidelines
+
+Contributors to DDG tool are absolutely encouraged, whether to fix bugs, add/request new features or simply ask questions. Authors can be contacted via email (manmalviya18@gmail.com).
 
 ## References
 [1]	C. McComb, J. Cagan, and K. Kotovsky, “Mining Process Heuristics from Designer Action Data Via Hidden Markov Models,” J. Mech. Des. Trans. ASME, vol. 139, no. 11, pp. 1–12, 2017, doi: 10.1115/1.4037308.
