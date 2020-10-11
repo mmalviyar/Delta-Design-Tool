@@ -28,15 +28,20 @@ We also designed a control panel to provide a way to mitigate accidental mistake
 | ** Anchor**  	| Defining a delta as anchor delta	  	|  -	|  Select two delta sequentially as Anchor (shown with holes) 	|
 |  **Move**  	| Move a delta from one location to another  	|  D 	|  Select a delta and select the next coordinates for moving delta  	|
 |  **Fine Control**   	|  Move a delta using keyboard   	|  E 	|  Select a delta and use arrow keys to move 	|
-|  **Color**  	| Change the color of existing delta  	|  C 	|   	|
+|  **Color**  	| Change the color of existing delta  	|  C 	|  -  	|
 |  **Flip**  	| Change the orientation of existing delta  	|  F 	| In some instances flip might not be possible due to delta overlapping  	|
-|  **Delete**  	| Delete existing delta or anchors	  	|  del 	|  - 	|
+|  **Delete**  	| Delete existing delta or anchors	  	|  del 	|  Deleting Anchored deltas will also remove both the anchors 	|
 |  **End Study**  	| Ending the study  	|   - 	|  	-  |
+|  **Redo**  	|  -  	|   - 	|  	-  |
+|  **Undo**  	|  - 	|   - 	|  	-  |
+|  **Clear**  	| Deleting all deltas  	|   - 	|  	-  |
+|  **Refresh**  	| Refreshing the DDG screen  	|  F5 	|  	-  |
+
 
 
 
 ## Objective Function Description
-As a researcher, you can define you own objective function to evaluate the performance of a designer. As an example we developed a default objective function for evaluating the individual designer's performance as they played the game. The constraints related to the properties of the red and blue deltas and the overarching storyboard of the game remained the same as in []; however, individuals can also complete the challenge in 45 minutes. One of the main objectives for the designer is to achieve a low-cost design with optimum factor of safety (FOS). We defined the maximum cost of residence to be $1500 as per original game rules. We defined the target FOS to be 1.3, which strikes an optimum balance between over-designing and under-designing [6]. A summary of the objectives is presented below:
+As a researcher, you can define you own objective function to evaluate the performance of a designer. As an example we developed a default objective function for evaluating the individual designer's performance as they played the game. The constraints related to the properties of the red and blue deltas and the overarching storyboard of the game remained the same as in []; however, individuals can also complete the challenge in 45 minutes. One of the main objectives for the designer is to achieve a low-cost design with optimum factor of safety (FOS). We defined the maximum cost of residence to be $1500 as per original game rules. We defined the target FOS to be 1.3, which strikes an optimum balance between over-designing and under-designing [6]. For the tool to calculate the objective function, having two anchored deltas minimum is neccessary. A summary of the objectives is presented below:
 
 **Main Objective**
 
