@@ -86,7 +86,7 @@ The sequential data is stored as series of object files after each events. This 
 
 ## Testing
 We tested the desired actions and features using MATLAB unit test facility. We progammed a simple sequential unittest (LaunchAppTest.m) to test the software. Our test results can be found in TEST_RESULTS.mat. To rerun the test, use the following command
-# runtests (LaunchAppTest.m)
+### runtests (LaunchAppTest.m)
 
 ## Examples
 A successful demonstration of the DDG tool in a research is presented in [7]. Additionally successfully designs are also provided in Examples folder (To access, copy all the files into main folder and run the program with participant number 51).
