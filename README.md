@@ -54,7 +54,7 @@ As a researcher, you can define you own objective function to evaluate the perfo
 1. Smoother Exterior and an Angular Interior
 1. Total number of blue deltas may not exceed 60% of the total number of deltas
 * Spatial	: 
-1. Doorway length must be between 5 and 10m
+1. Doorway length must be between 5 and 10m (Represented by black outlined deltas)
 1. Minimum Interior Area of 100 quarter-deltas
 
 To judge and compare the designs of residence by participants analytically, we developed a normalized design score based on FOS and cost, calculated in Equations 1-3. The design score varies from 0 (lowest score) to 1 (highest score), such that if the design does not meet the requirement, the client satisfaction score is zero. The normalized design score is given by
@@ -76,6 +76,7 @@ DDG tool can be accessed directly without installing but will need access to MAT
 **DDG Tool GUI**
 
 We mainly programmed the DDG tool using MATLAB App designer and supporting modules with object oriented programming. DDG tool works with MATLAB 2019 or higher with App designer functionality and can be accessed via Opener.mlapp in the package. This would open up a prompt window asking for participant number. After entering the participant number, designer can access to the program and sketch their design with real-time performance evaluation.
+
 **DDG Tool data collection**
 
 The sequential data is stored as series of object files after each events. This files are named as per convention:- XState_A.mat, where X is the participant number and A is the action number at given point of design. In addition, the DDG tool store the time and action log as table (Xactiondata.mat). Using collected data, a researcher can use a variety of sequential learning algorithms and statistics to extract design heuristics.
