@@ -1,30 +1,31 @@
 classdef deltaworld < handle
     
     properties
-        coordinates = [];
-        color = [];
-        orientation = [];
-        Seq_tri = [];
-        Rel = [];
-        dist_rel = [];
-        color_rel = [];
-        door = [];        
-        anchor = [];
-        anc = NaN;
-        number = 1;
+        coordinates = []; % Coordinates of deltas
+        color = []; % Color of Deltas 1- R 0 - B
+        orientation = []; % Up or DOwn Delta 
+        Seq_tri = []; % Defines the sequence of triangle from one door to another forming a close loop
+        Rel = []; % Defines the connection between adjacent deltas
+        dist_rel = [];% Distance Relation
+        color_rel = []; % Color Relation
+        door = []; % Defines door deltas (Deltas with one neighbour)       
+        anchor = []; % Defines delta with anchor
+        anc = NaN;% Number of Anchor
+        number = 1; % Number of deltas
+        
         Cost = 0;
         FOS = 0;
         thermal = 0;
         aesthetics = 0;         
-        tri_axis = [];
-        axes = [];
-        axno = [];         
-        Vertices = [];
+        tri_axis = [];  % On which axis the delta is present
+        axes = [];      % Axis
+        axno = [];     % Axis Number   
+        Vertices = []; % Possible Vertices of deltas
         delta = triangle();
         check = NaN;
         COGax = NaN;
         COG = [];
-        cus_sat = 0;
+        score = 0;
         Inside_Area = NaN;
         SCORE = 0;
         door_length = NaN;
@@ -73,23 +74,10 @@ classdef deltaworld < handle
                     this.axes(:,:,i) = [0  0; xm ym];
                 end
             end
-            % Saving the vertices, Axes and Axno
-             %tridelta.vertices= this.Vertices;
-             %tridelta.Axes = this.axes;
-             %tridelta.Axno = this.axno;
         end
         
-        % Saving Everything-----------------
-        function save_state(this,action)  
-            % Adding UP Triange, Down Triangle, Anchor
-            % Revising Flip, Move, Color and Delete
-            % Open PDF for problem statement
-            % Control Options Undo Redo
-            % Design Performance at every state
-            
-        end
         
-        % Adding a triangle-------------------------------------------
+        % Adding a delta-------------------------------------------
         
         function [msg,success] = add_delta(this, loc, colr, orid)
                                
@@ -126,7 +114,9 @@ classdef deltaworld < handle
                 end
         end
         
-        function addtriangle(this,x,y,ori,colr,idx) %Adding Triangle
+        % Stores the coordinates, orientation and axis of new
+        % delta---------------
+        function addtriangle(this,x,y,ori,colr,idx) %Adding delta
             this.coordinates(idx,:) = [x y];
             this.orientation(idx) = ori;
             this.tri_axis(idx) = round(x - y,1);
@@ -138,7 +128,8 @@ classdef deltaworld < handle
             this.color(idx) = c;
         end
         
-        function  [msg,success] = del_delta(this, loc) % Deleting Triangle
+        % Deleting Delta-----------------------
+        function  [msg,success] = del_delta(this, loc) % Deleting Triangle---------------
                  x = loc(1); y = loc(2);     
                  %tri = app.tridelta.tri;
                  if this.number > 1
@@ -169,6 +160,7 @@ classdef deltaworld < handle
                  end                  
         end
         
+        % Moving a delta from one coord to another----------------------
         function [msg,success] = movetri(this,loc,idx)
                 defvert = this.coordinates;
                 defvert(idx,:) = [];
@@ -187,6 +179,8 @@ classdef deltaworld < handle
                 end
                     
         end
+        
+        % Flipping the orientation----------------------
         function [msg,success] = flip(this,idx)
             ori = this.orientation(idx);
             if ori == 1
@@ -215,6 +209,7 @@ classdef deltaworld < handle
             
         end
         
+        % Changing the Color ----------------------
         function [msg,success] = changecolor(this,idx)
             colr = this.color(idx);
             if colr == 0
@@ -230,7 +225,7 @@ classdef deltaworld < handle
                 success = 1;  
         end
         
-
+        % Adding the Anchor to a delta ----------------
         function [msg,success] = add_anchor(this,idx,anc)
             if idx > 0
                 success = 1;
@@ -244,7 +239,7 @@ classdef deltaworld < handle
             end
         end
         
-        % Check Design
+        % Evaluate the design  ------------
         function tricheck = checkdesign(this)
             Def_vert = [this.coordinates,(1:this.number -1)'];
             colr = this.color;
@@ -339,7 +334,8 @@ classdef deltaworld < handle
             tricheck.colorrel = Colrel;
         end
 
-        %Getting Sequence of triangles
+        %Getting Sequence of triangles to check if the triangles make a
+        %open structure with one door
         function Seq = trirel(this,UpTri,DownTri,C,doortri,cse)
             i = doortri(1); d = doortri(2);
             Trinoup = UpTri(:,3); 
@@ -390,7 +386,7 @@ classdef deltaworld < handle
         end
 
         
-        % Distance Interaction
+        % Distance Interaction- CHECKING the joint between deltas
         function dist = distance_rel(this,P)
         [m,n] = size(P);
         dist = zeros(m,n);
@@ -551,47 +547,36 @@ classdef deltaworld < handle
                          end
                     exist = 1;
                     if thermalstable == 1
-                        this.thermal = "Thermally Stable";
+                        this.thermal = "Yes";
                     else
-                        this.thermal = "Thermally Unstable";
+                        this.thermal = "No";
                     end
                     if colrstable == 1 && Blueperc <=0.6
-                        this.aesthetics = "Aesthetic Design";
+                        this.aesthetics = "Yes";
                     else
-                        this.aesthetics = "Check if there are more than 4 blue together together";
+                        this.aesthetics = "No";
                     end
+                    
                     FOS_NORM = abs(this.FOS - 1.3)/0.7;
                     COST_NORM = abs((this.Cost - 600)/(1500-600));
                                         
                     if this.FOS >=1 && this.Cost <=1500 && thermalstable == 1 && colrstable == 1 ...
                             && this.door_length <= 10 && this.door_length >=5 && this.Inside_Area/2 >= 100
                         Norm_Score = 1- 0.5*(FOS_NORM + COST_NORM);
-                        if Norm_Score >= 0.75
-                            this.cus_sat = "Excellent Design";
-                        elseif Norm_Score >= 0.5
-                            this.cus_sat = "Good Design";
-                        elseif Norm_Score >= 0.25
-                            this.cus_sat = "Accepted";
-                        elseif Norm_Score > 0
-                            this.cus_sat = "Accepted";
-                        end
                     else
-                        this.cus_sat = "Design is not acceptable, Please Revise";
-                        Norm_Score = 0;
+                        Norm_Score = -1;
                     end
-                    this.SCORE = Norm_Score;
+                    this.score = Norm_Score;
                     reesult.Strength_Performance = this.FOS;
                     reesult.Thermal_Performance = this.thermal;
                     reesult.Aesthetic_Performance = this.aesthetics;
                     reesult.Cost_Performance = this.Cost;
                     reesult.tricheck = tricheck;
-                    reesult.customer_satisfaction = this.cus_sat;
-
+                    reesult.area = this.Inside_Area/2;
+                    reesult.door_length = this.door_length;
                 else
-                    %damn = msgbox('You need help BRO');
                     reesult.tricheck = tricheck;
                     exist = 0;
-                    %uiwait(damn,3);
                 end
        
         end
