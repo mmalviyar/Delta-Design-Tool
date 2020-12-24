@@ -95,9 +95,7 @@ classdef LaunchAppTest < matlab.uitest.TestCase
            else
                check = 0;
            end
-           testCase.verifyEqual(check,1);        
-             
-            
+           testCase.verifyEqual(check,1);                   
        end
 %         
         function test_color(testCase)
