@@ -75,7 +75,7 @@ DDG tool can be accessed directly without installing but will need access to MAT
 ## Usage
 **DDG Tool GUI**
 
-We mainly programmed the DDG tool using MATLAB App designer and supporting modules with object oriented programming. DDG tool works with MATLAB 2019 or higher with App designer functionality and can be accessed via Opener.mlapp in the package. This would open up a prompt window asking for participant number. After entering the participant number, designer can access to the program and sketch their design with real-time performance evaluation.
+We mainly programmed the DDG tool using MATLAB App designer and supporting modules with object oriented programming. DDG tool works with MATLAB 2019 or higher with App designer functionality and can be accessed via Opener.mlapp in the package. This would open up a prompt window asking for participant number. After entering the participant number, designer can access to the program and sketch their design with real-time performance evaluation. If required, prompt window can be skipped by using matlab command :- DeltaDesign(Participant_no).
 
 **DDG Tool data collection**
 
