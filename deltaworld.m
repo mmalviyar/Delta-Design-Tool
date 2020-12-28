@@ -1,5 +1,6 @@
 classdef deltaworld < handle
-    
+    % This class inititate, control and provide results for delta design
+    % game
     properties
         coordinates = []; % Coordinates of deltas
         color = []; % Color of Deltas 1- R 0 - B
@@ -13,32 +14,33 @@ classdef deltaworld < handle
         anc = NaN;% Number of Anchor
         number = 1; % Number of deltas
         
-        Cost = 0;
-        FOS = 0;
-        thermal = 0;
-        aesthetics = 0;         
+        Cost = 0; % Final Cost of the design
+        FOS = 0; % Factor of safety of design
+        thermal = 0; % Check the thermal stability of design
+        aesthetics = 0; % Check the aesthetic appearance of design
         tri_axis = [];  % On which axis the delta is present
         axes = [];      % Axis
         axno = [];     % Axis Number   
         Vertices = []; % Possible Vertices of deltas
-        delta = triangle();
-        check = NaN;
-        COGax = NaN;
-        COG = [];
-        score = 0;
-        Inside_Area = NaN;
-        SCORE = 0;
-        door_length = NaN;
-        
+        delta = triangle(); % Initiate a class containing supporting functions
+        check = NaN; % Check the validity of design
+        COGax = NaN; % Center of gravity axes
+        COG = [];% Center of gravity coordinates
+        score = 0; % Normalized Score
+        Inside_Area = NaN; % Inside Area of residence
+        door_length = NaN; % Door Length        
         
     end
     
     methods
-        function this = deltaworld()
-            % Nothing Right NOW
+        function this = deltaworld() 
+            % Initiates the world
+            
         end
-        % INITIATING THE ENVIRONMENT WITH AXES NUMBER, POSSIBLE VERTICES and PLOTTING AXIS
+        
+        
         function deltaenv(this,Res)
+            % Initiating the world with axes and  possible coordinates based on resolution
             Lx = Res;
             Ly = Res;
             number_of_axes = Res-1;
@@ -77,9 +79,10 @@ classdef deltaworld < handle
         end
         
         
-        % Adding a delta-------------------------------------------
         
+        % Adding a delta-------------------------------------------
         function [msg,success] = add_delta(this, loc, colr, orid)
+            % Adding a delta 
                                
                  x = loc(1); y = loc(2);
                  no = this.number;
@@ -116,7 +119,8 @@ classdef deltaworld < handle
         
         % Stores the coordinates, orientation and axis of new
         % delta---------------
-        function addtriangle(this,x,y,ori,colr,idx) %Adding delta
+        function addtriangle(this,x,y,ori,colr,idx) 
+            %Stores the coordinates, orientation and axis of new delta
             this.coordinates(idx,:) = [x y];
             this.orientation(idx) = ori;
             this.tri_axis(idx) = round(x - y,1);
@@ -129,7 +133,8 @@ classdef deltaworld < handle
         end
         
         % Deleting Delta-----------------------
-        function  [msg,success] = del_delta(this, loc) % Deleting Triangle---------------
+        function  [msg,success] = del_delta(this, loc) 
+                % Deleting a delta
                  x = loc(1); y = loc(2);     
                  %tri = app.tridelta.tri;
                  if this.number > 1
@@ -161,7 +166,8 @@ classdef deltaworld < handle
         end
         
         % Moving a delta from one coord to another----------------------
-        function [msg,success] = movetri(this,loc,idx)
+        function [msg,success] = movetri(this,loc,idx) 
+                % Moving a delta from one place to another
                 defvert = this.coordinates;
                 defvert(idx,:) = [];
                 ori = this.orientation;
@@ -182,6 +188,7 @@ classdef deltaworld < handle
         
         % Flipping the orientation----------------------
         function [msg,success] = flip(this,idx)
+            % Changing the orientation of existing delta
             ori = this.orientation(idx);
             if ori == 1
                 newori = 0;
@@ -211,6 +218,7 @@ classdef deltaworld < handle
         
         % Changing the Color ----------------------
         function [msg,success] = changecolor(this,idx)
+            % Changing the color of existing delta
             colr = this.color(idx);
             if colr == 0
                 newcolr = 1;
@@ -227,6 +235,7 @@ classdef deltaworld < handle
         
         % Adding the Anchor to a delta ----------------
         function [msg,success] = add_anchor(this,idx,anc)
+            % specifying the anchor on a delta 
             if idx > 0
                 success = 1;
                 this.anchor(idx) = 1;
@@ -240,7 +249,8 @@ classdef deltaworld < handle
         end
         
         % Evaluate the design  ------------
-        function tricheck = checkdesign(this)
+        function tricheck = checkdesign(this) 
+            % Check the validity of design
             Def_vert = [this.coordinates,(1:this.number -1)'];
             colr = this.color;
             ori = this.orientation;
@@ -336,7 +346,8 @@ classdef deltaworld < handle
 
         %Getting Sequence of triangles to check if the triangles make a
         %open structure with one door
-        function Seq = trirel(this,UpTri,DownTri,C,doortri,cse)
+        function Seq = trirel(this,UpTri,DownTri,C,doortri,cse) 
+            % Getting a sequence of delta from left to right
             i = doortri(1); d = doortri(2);
             Trinoup = UpTri(:,3); 
             Trinodn = DownTri(:,3);
@@ -387,29 +398,31 @@ classdef deltaworld < handle
 
         
         % Distance Interaction- CHECKING the joint between deltas
-        function dist = distance_rel(this,P)
-        [m,n] = size(P);
-        dist = zeros(m,n);
-            for i = 1:m
-                for j = 1:n
-                   if P(i,j) ==4
-                       dist(i,j) = 1; end
-                   if P(i,j) == 3 || P(i,j) == 5
-                       dist(i,j) = 0.75; end
-                   if P(i,j) == 2 || P(i,j) == 6
-                       dist(i,j) = 0.5; end
-                   if P(i,j) == 1 || P(i,j) == 7
-                       dist(i,j) = 0.25; end          
+        function dist = distance_rel(this,P) 
+        % determining the joint between adjacent deltas
+            [m,n] = size(P);
+            dist = zeros(m,n);
+                for i = 1:m
+                    for j = 1:n
+                       if P(i,j) ==4
+                           dist(i,j) = 1; end
+                       if P(i,j) == 3 || P(i,j) == 5
+                           dist(i,j) = 0.75; end
+                       if P(i,j) == 2 || P(i,j) == 6
+                           dist(i,j) = 0.5; end
+                       if P(i,j) == 1 || P(i,j) == 7
+                           dist(i,j) = 0.25; end          
+                    end
                 end
-            end
-            this.dist_rel = dist;
-        end
+                this.dist_rel = dist;
+         end
         
       
         
         % Calculate Objective Function
-        function [reesult,exist] = cal_objfun(this)
-                %Def_vert = app.tridelta.tri(2:3,:);
+        function [reesult,exist] = cal_objfun(this) 
+                % Calculate the objective function
+                
                 colr = this.color;
                 ori = this.orientation;
                 tricheck = this.checkdesign();
@@ -458,7 +471,7 @@ classdef deltaworld < handle
                         % AREA OF THE INSIDE
                         this.Inside_Area = polyarea(this.coordinates(TriSEQ,1),this.coordinates(TriSEQ,2));
                        
-%                      lendoor = norm(Axdelta(door(1)) - Axdelta(door(2)));             
+  %                      lendoor = norm(Axdelta(door(1)) - Axdelta(door(2)));             
 
                      % Project Budget Estimation
 
