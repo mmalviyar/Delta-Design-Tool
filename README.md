@@ -75,7 +75,7 @@ DDG tool can be accessed directly without installing but will need access to MAT
 ## Usage
 **DDG Tool GUI**
 
-We mainly programmed the DDG tool using MATLAB App designer and supporting modules with object oriented programming. DDG tool works with MATLAB 2019 or higher with App designer functionality and can be accessed via Opener.mlapp in the package. This would open up a prompt window asking for participant number. After entering the participant number, designer can access to the program and sketch their design with real-time performance evaluation.
+We mainly programmed the DDG tool using MATLAB App designer and supporting modules with object oriented programming. DDG tool works with MATLAB 2019 or higher with App designer functionality and can be accessed via Opener.mlapp in the package. This would open up a prompt window asking for participant number. After entering the participant number, designer can access to the program and sketch their design with real-time performance evaluation. If required, prompt window can be skipped by using matlab command :- DeltaDesign(Participant_no).
 
 **DDG Tool data collection**
 
@@ -84,8 +84,12 @@ The sequential data is stored as series of object files after each events. This 
 ## Video Demonstration
 [![Watch the video](https://img.youtube.com/vi/<GNnKqZj9Lj8>/maxresdefault.jpg)](https://youtu.be/GNnKqZj9Lj8)
 
+## Testing
+We tested the desired actions and features using MATLAB unit test facility. We progammed a simple sequential unittest (LaunchAppTest.m) to test the software. Our test results can be found in TEST_RESULTS.mat. To rerun the test, use the following command
+### results = runtests('LaunchAppTest')
+
 ## Examples
-A successful demonstration of the DDG tool in a research is presented in [7]. Additionally successfully designs are also provided in Examples folder (To access, copy all the files into main folder and run the program with participant number 51).
+A successful demonstration of the DDG tool in a research is presented in [7]. Additionally successfully designs are also provided in data folder (To access, copy all the files into main folder and run the program with participant number 51). To run the example, type DeltaDesign(51) in the matlab command box.
 
 ## Community Guidelines
 
